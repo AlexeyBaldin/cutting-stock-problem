@@ -1,10 +1,11 @@
 import model.Dataset;
+import permutation.PartDownPermutationCreator;
+import permutation.PartDownShufflePermutationCreator;
 import solver.*;
 import task.IterationTask;
 import task.OneStepTask;
 import util.Reader;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Main {
@@ -13,8 +14,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //oneStep();
-        iterative(10, 20);
+        oneStep();
+        //iterative(10, 20);
 
     }
 
@@ -42,8 +43,11 @@ public class Main {
     public static void iterative(int iterCount, int shuffleCount) {
 
         for (Dataset dataset : datasets) {
-            IterationTask iterationTask = new IterationTask(iterCount, shuffleCount, dataset,
-                    new CuttingStockBase(), new PartDownShufflePermutationCreator());
+            IterationTask iterationTask = new IterationTask(iterCount, dataset,
+                    new CuttingStockBase(), new PartDownPermutationCreator());
+
+//            IterationTask iterationTask = new IterationTask(iterCount, shuffleCount, dataset,
+//                    new CuttingStockBase(), new PartDownShufflePermutationCreator());
 
             OneStepTask baseOneStep = new OneStepTask(dataset, new CuttingStockBaseDescending());
 

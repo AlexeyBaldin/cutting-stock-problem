@@ -3,8 +3,8 @@ package task;
 import model.Dataset;
 import model.Result;
 import solver.CuttingStock;
-import solver.PermutationCreator;
-import solver.ShufflePermutationCreator;
+import permutation.PermutationCreator;
+import permutation.ShufflePermutationCreator;
 
 import java.util.ArrayList;
 
