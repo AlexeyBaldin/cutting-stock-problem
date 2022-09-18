@@ -44,7 +44,7 @@ public class IterationTask {
         ArrayList<ArrayList<Integer>> permutations = shufflePermutationCreator
                 .createPermutations(iterCount, shuffleCount, dataset.getPermutationCopy());
 
-        System.out.println(permutations.size());
+        //System.out.println(permutations.size());
 
         recordIter = 0;
         recordSources = 0;

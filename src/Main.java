@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
         oneStep();
-        //iterative(10, 20);
+        //iterative(10, 100);
 
     }
 
@@ -43,11 +43,11 @@ public class Main {
     public static void iterative(int iterCount, int shuffleCount) {
 
         for (Dataset dataset : datasets) {
-            IterationTask iterationTask = new IterationTask(iterCount, dataset,
-                    new CuttingStockBase(), new PartDownPermutationCreator());
+//            IterationTask iterationTask = new IterationTask(iterCount, dataset,
+//                    new CuttingStockBase(), new PartDownPermutationCreator());
 
-//            IterationTask iterationTask = new IterationTask(iterCount, shuffleCount, dataset,
-//                    new CuttingStockBase(), new PartDownShufflePermutationCreator());
+            IterationTask iterationTask = new IterationTask(iterCount, shuffleCount, dataset,
+                    new CuttingStockBase(), new PartDownShufflePermutationCreator());
 
             OneStepTask baseOneStep = new OneStepTask(dataset, new CuttingStockBaseDescending());
 

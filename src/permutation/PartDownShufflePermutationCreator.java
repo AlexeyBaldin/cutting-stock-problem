@@ -27,7 +27,11 @@ public class PartDownShufflePermutationCreator implements ShufflePermutationCrea
                             part.add(basePermutation.get(k++));
                         }
                     }
-                    Collections.shuffle(part);
+
+                    if(i%2 == 0) {
+                        Collections.shuffle(part);
+                    }
+
                     permutation.addAll(part);
                 }
 
