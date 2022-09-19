@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class CuttingStockBase implements CuttingStock {
 
-    protected void permutationModify(ArrayList<Integer> permutation){
+    protected void permutationModify(int length, ArrayList<Integer> permutation){
         //No modify
     }
 
@@ -25,7 +25,7 @@ public class CuttingStockBase implements CuttingStock {
         ArrayList<Integer> used = new ArrayList<>();
         ArrayList<Integer> sourceNumber = new ArrayList<>();
 
-        permutationModify(permutation);
+        permutationModify(length, permutation);
 
         int source = 1;
         sourceNumber.add(source);
@@ -34,7 +34,7 @@ public class CuttingStockBase implements CuttingStock {
         for (int i = 1; i < permutation.size(); i++) {
             int using = choosingStrategy(length, i, permutation, used);
 
-            if(using >= 0 && using < used.size()) {
+            if(using >= 0 && using < used.size() && used.get(using) >= permutation.get(i)) {
                 used.set(using, used.get(using) - permutation.get(i));
                 sourceNumber.add(using+1);
             } else {

@@ -1,5 +1,4 @@
 import model.Dataset;
-import permutation.PartDownPermutationCreator;
 import permutation.PartDownShufflePermutationCreator;
 import solver.*;
 import task.IterationTask;
@@ -25,10 +24,11 @@ public class Main {
 
         for (Dataset dataset : datasets) {
             OneStepTask baseOneStep = new OneStepTask(dataset, new CuttingStockBaseDescending());
-            OneStepTask myOneStep = new OneStepTask(dataset, new CuttingStockMyAlg());
+            OneStepTask myOneStep = new OneStepTask(dataset, new CuttingStockAverageWithDispersionMinRemain());
             double deviationBase = baseOneStep.getDeviation();
             double deviationMy = myOneStep.getDeviation();
-            System.out.println("Lower = " + dataset.getLower() + " | baseOneStep = " + baseOneStep.getUsingCount()
+            System.out.println(dataset.getFile());
+            System.out.println("    Lower = " + dataset.getLower() + " | baseOneStep = " + baseOneStep.getUsingCount()
                     + ", deviation = " + deviationBase + " | myOneStep = " + myOneStep.getUsingCount()
                     + ", deviation = " + deviationMy);
             averageDeviationBaseDescending += deviationBase;
